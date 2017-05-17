@@ -3,15 +3,20 @@ A simple example NodeJS + Mongodb to illustrate how to dockerize a NodeJS for lo
 
 Original tutorial - https://medium.com/@sunnykay/docker-development-workflow-node-express-mongo-4bb3b1f7eb1e
 
+## Getting Started
+To start local development, simply start up the images with docker compose.
+```bash
+docker compose up
+```
 
-## Building
+## Building Docker
 ### NodeJS
 Building the NodeJS container
 ```bash
 docker build -t node-test:0.1 .
 ```
 
-## Running
+## Running Docker
 ### NodeJS
 Running the NodeJS container
 ```bash
