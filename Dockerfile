@@ -1,5 +1,7 @@
 FROM node:alpine
 
+ENV PORT=3000
+
 RUN mkdir /app
 WORKDIR /app
 
@@ -8,6 +10,6 @@ RUN npm install
 
 COPY . /app
 
-EXPOSE 3000
+EXPOSE $PORT
 
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start"]
