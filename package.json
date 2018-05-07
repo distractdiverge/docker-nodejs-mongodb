@@ -4,8 +4,15 @@
   "description": "An example nodejs/mongo app dockerized for local development",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "prestart": "npm run -s build",
+    "start": "npm run -s serve",
+    "build": "tsc",
+    "test": "jest --forceExit --coverage --verbose",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"Typescript,Node\" -c \"cyan.bold,green.bold\" \"npm run -s watch-ts\" \"npm run -s watch-node\"",
+    "watch-node": "nodemon dist/index.js",
+    "watch-ts": "tsc -w",
+    "watch-test": "npm run -s test -- --watchAll"
   },
   "author": "Alex Lapinski <contact@alexlapinski.name>",
   "license": "MIT",
@@ -18,6 +25,12 @@
     "sequelize": "^3.30.4"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "jest": "^22.4.3",
+    "nodemon": "^1.11.0",
+    "ts-jest": "^22.4.5",
+    "ts-node": "^6.0.3",
+    "tsdoc": "0.0.4",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
   }
 }
