@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "npm run -s build",
-    "start": "npm run -s serve",
+    "start": "node dist/index.js",
     "build": "tsc",
     "test": "jest --forceExit --coverage --verbose",
     "lint": "tslint -c tslint.json -p tsconfig.json",
